@@ -1,0 +1,34 @@
+  <?php
+  /** @var \Magento\Catalog\Model\Product $product */
+  $product = $block->getRandomProduct();
+  ?>
+  <div class="block">
+      <div class="block-title">
+          <strong><?= $block->escapeHtml($block->getTitle()) ?></strong>
+      </div>
+      <div class="block-content">
+          <div class="product-info">
+              <div class="product-image">
+                  <a href="<?= $block->getUrl('catalog/product/view', ['id' => $product->getId()]) ?>">
+                         <img src="<?= $block->escapeUrl($product->getImageUrl()) ?>" alt="<?= $block->escapeHtml($product->getName()) ?>" />
+                     </a>
+                 </div>
+                 <div class="product-details">
+                     <h2 class="product-name"><?= $block->escapeHtml($product->getName()) ?></h2>
+                     <div class="product-price">
+                         <?= $block->getLayout()->createBlock(\Magento\Framework\Pricing\Render::class)
+                             ->setTemplate('Magento_Catalog::product/price/amount/default.phtml')
+                             ->setData('price_render_handle', 'catalog_product_price')
+                             ->setData('product', $product)
+                             ->toHtml() ?>
+                     </div>
+                     <div class="buy-button">
+                         <button type="button" class="action primary" onclick="window.location.href='<?= $block->escapeUrl($block->getAddToCartUrl($product)) ?>';">
+                             <?= __('Buy') ?>
+                         </button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+

@@ -1,0 +1,23 @@
+  <?xml version="1.0"?>
+  <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+      <system>
+          <section id="test_task" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+              <label>Task Configuration</label>
+              <tab>general</tab>
+              <resource>Test_Task::config</resource>
+              <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                  <label>General Configuration</label>
+                  <field id="block_area_title" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                      <label>Block/Area Title</label>
+                      <comment>The title of the block/area on the homepage.</comment>
+                  </field>
+                  <field id="redirect_to_checkout" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                      <label>Redirect Directly to Checkout?</label>
+                      <comment>If enabled, the "Buy" button will redirect the customer directly to checkout without hitting the cart page.</comment>
+                      <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                  </field>
+              </group>
+          </section>
+      </system>
+  </config>
+  ```
